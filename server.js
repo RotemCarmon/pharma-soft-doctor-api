@@ -14,7 +14,7 @@ app.use("/api/prescription", prescriptionRoutes);
 
 app.get("/", (req, res) => {
   logger.debug('Connected')
-  res.send("Doctor server is connected!");
+  res.send("Doctor server is connected!!!");
 });
 
 const port = process.env.PORT || 6060;

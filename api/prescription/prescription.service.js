@@ -3,9 +3,8 @@ const convertService = require('../../services/convert.service.js');
 const logger = require('../../services/logger.service.js');
 
 async function getPrescriptions(params) {
-    console.log("getPrescriptions -> params", params)
     const prescriptions = await httpService.post('prescription', params); // send POST request to the doctors server
-    logger.debug('The prescription back from the DB: ' + prescriptions);
+    // logger.debug('The prescription back from the DB: ' + JSON.stringify(prescriptions));
     const convartedPrescriptions = convertService.convertToXml(prescriptions, 1); //convert to XML
     return convartedPrescriptions;
 }

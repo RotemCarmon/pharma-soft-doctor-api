@@ -4,7 +4,6 @@ const logger = require('../../services/logger.service.js');
 
 async function getPrescriptions(params) {
     const prescriptions = await httpService.post('prescription', params); // send POST request to the doctors server
-    // logger.debug('The prescription back from the DB: ' + JSON.stringify(prescriptions));
     const convartedPrescriptions = convertService.convertToXml(prescriptions, 1); //convert to XML
     return convartedPrescriptions;
 }
@@ -30,16 +29,3 @@ module.exports = {
     updatePrescription,
     pharmacyReport,
 };
-
-// function formatToJson(xmlData) {
-//     var obj = {};
-//     for (key in xmlData) {
-//         let value = xmlData[key];
-//         if (typeof value === 'object') {
-//             obj[formatToCamelCase(key)] = formatToJson(value);
-//         } else obj[formatToCamelCase(key)] = value;
-//     }
-
-//     console.log('formatToJson -> obj', obj);
-//     return obj;
-// }

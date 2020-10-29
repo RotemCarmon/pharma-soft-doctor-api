@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 
 app.get('/api/logs', (req,res) => {
   fs.readFile('./logs/backend.log', 'utf8', function(err, data) {
-    if (err) throw err;
+    if (err) logger.debug(err);
     res.send(data)
 });
 })

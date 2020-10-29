@@ -5,6 +5,7 @@ async function getPrescriptions(req, res) {
   try{
     if(!req.body.getPrescriptions) res.status(404).send('Bad request')
     const params = req.body.getPrescriptions.messageHeader; // camelCase or TitleCase
+    logger.debug('Sending TZ:' +  params.TZ + ' to the DB')
     const prescriptions = await prescriptionService.getPrescriptions(params);
 
     res.status(200).send(prescriptions);

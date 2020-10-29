@@ -19,8 +19,8 @@ async function convertToXml(data, funcCode) {
     const funcName = _getFuncName(funcCode);
     if (!funcName) throw Error("Couldn't find the function name");
     
-    if (!Array.isArray(dataArr)) dataArr = [dataArr]; // is this ok to do?
-    const formated = dataArr.map((_data) => {
+    if (!Array.isArray(data)) data = [data]; // is this ok to do?
+    const formated = data.map((_data) => {
         return _traverseJSON(_data);
     });
 

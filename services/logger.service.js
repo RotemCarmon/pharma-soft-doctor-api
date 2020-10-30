@@ -8,7 +8,7 @@ if (!fs.existsSync(logsDir)) {
 //define the time format
 function getTime() {
   let now = new Date();
-  return now.toUTCString();
+  return now.toLocaleString('he-IL');
 }
 
 function doLog(line, level = "Debug") {

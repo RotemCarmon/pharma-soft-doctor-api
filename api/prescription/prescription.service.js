@@ -9,8 +9,8 @@ async function getPrescriptions(params) {
 }
 
 async function updatePrescription(prescriptions) {
-    logger.info("The request has been sent to the Doctor's server -->>");
     const responseMsg = await httpService.put('prescription', prescriptions);
+    logger.info("The request has been sent to the Doctor's server -->>");
     const xmlResMsg = convertService.convertToXml(responseMsg, 2); //convert to XML
     return xmlResMsg;
 }

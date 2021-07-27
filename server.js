@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
 const http = require('http').createServer(app);
 const xmlparser = require('express-xml-bodyparser');
@@ -8,7 +7,7 @@ const fs = require('fs');
 
 const prescriptionRoutes = require('./api/prescription/prescription.routes');
 
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(xmlparser({ explicitArray: false, normalizeTags: false }));
 
 app.use('/api/prescription', prescriptionRoutes);
